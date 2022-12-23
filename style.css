@@ -381,7 +381,6 @@ width: 150px;
     height: 35px;
     font-size: 0.7rem;
   }
-
   .container:before {
     width: 1500px;
     height: 1500px;
@@ -445,3 +444,45 @@ width: 150px;
     left: 50%;
   }
 }
+.output{
+  position: fixed;
+  outline: none;
+  left: 30px;
+  top: 25px;
+  bottom: 80px;
+      max-width: 850px;
+      width: 100%;
+      background-color: #ffffff;
+      margin: 10px 0;
+      height: 90vh;
+      border-radius: 55px;
+      display: grid;
+      grid-template-columns: 90%;
+      padding: 0 0.4rem;
+      position: relative;
+    }
+    .output i {
+      text-align: center;
+      line-height: 55px;
+      color: #acacac;
+      transition: 0.5s;
+      font-size: 1.1rem;
+    }
+    
+    .output textarea {
+        background: none;
+      outline: none;
+      border: none;
+      width: 100%;
+      line-height: 1;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    .input{
+      max-width: 100%;
+      margin-left: 20px;
+      margin-top: 20px;
+      
+      outline: none;
+    }
