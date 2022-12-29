@@ -3,6 +3,8 @@ const sign_up_btn = document.querySelector(".btn-solid");
 const container = document.querySelector(".container");
 const input_textfield = document.getElementById('start_word');
 const output_textarea = document.getElementById('response_output');
+const NOT_API_KEY = atob(atob(atob(atob(atob("VmxaamVGWXlSa2hVYmxKWFltMTRTMVZzVW5OVU1YQkdXWHBHYVZKdVFUSldiVFZ2WWtkR2NtSkVVbFpoTVZwUVZsZDRUMU5XVW5GWGJGSk9VakZLU1Zac1VrZFNNbFpYWTBWV1YySnNXbGxXYkZKWFUyeGtjbGR1WkU5aVZscDVWbGR6TlZReFpFZFRhMVpWWVd0S2RWVkdSVGxRVVQwOQ==")))))
+const generations = 3
 
 continueTyping = false
 
@@ -37,20 +39,23 @@ function generate(prompt){
         accept: 'application/json',
         'Cohere-Version': '2022-12-06',
         'content-type': 'application/json',
-        authorization: 'Bearer OMtneg5qz21DCQHszKGFSQrd5nYNHdZzzDN5tC7H'
+        authorization: NOT_API_KEY,
     },
     body: JSON.stringify({
-        prompt: prompt
+        prompt: prompt,
+        num_generations: generations,
     }),
     };
 
   fetch(url, options)
   .then(response => response.json())
   .then(data => {
-    textBack = data['generations'][0]['text']
+    console.clear()
+    textBack = data['generations'][Math.floor(Math.random()*generations)]['text']
     output_textarea.value += textBack
-    prompt = textBack.split(" ")
-    prompt = prompt[prompt.length - 1]
+    prompt = textBack
+    // prompt = textBack.split(" ")
+    // prompt = prompt[prompt.length - 1]
     generate(prompt)
   })
 }
