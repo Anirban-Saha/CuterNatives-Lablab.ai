@@ -1,5 +1,5 @@
-const sign_in_btn = document.querySelector("#try-again");
-const sign_up_btn = document.querySelector(".btn-solid");
+const goButton = document.querySelector("#try-again");
+const tryButton = document.querySelector(".btn-solid");
 const container = document.querySelector(".container");
 const input_textfield = document.getElementById('start_word');
 const output_textarea = document.getElementById('response_output');
@@ -8,7 +8,7 @@ const generations = 3
 
 continueTyping = false
 
-sign_up_btn.addEventListener("click", () => {
+tryButton.addEventListener("click", () => {
   prompt = input_textfield.value.trim()
   if(prompt.length == 0){
     alert("Please enter a starting prompt to proceed")
@@ -20,7 +20,7 @@ sign_up_btn.addEventListener("click", () => {
   container.classList.add("response-mode");
 });
 
-sign_in_btn.addEventListener("click", () => {
+goButton.addEventListener("click", () => {
   container.classList.remove("response-mode");
   continueTyping = false
   input_textfield.value = ""
